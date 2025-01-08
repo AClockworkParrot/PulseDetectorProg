@@ -7,6 +7,8 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
+#include <QGraphicsLineItem>
+#include <QPointF>  // Для работы с точками линии
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,10 +38,10 @@ public slots:
     void updateData(int a, int b, int c, int d);
 
     // Обновление гистограммы
-    void updateHistogram(int counter1, int counter2, int counter3, int counter4);
+    void updateChart(int counter1, int counter2, int counter3, int counter4);
 
-private slots:
-    void on_centralwidget_customContextMenuRequested(const QPoint &pos);
+    void toggleChartType();
+
 
 private:
     Ui::MainWindow *ui;
@@ -52,6 +54,8 @@ private:
     QGraphicsRectItem *bar3; // Третий столбец
     QGraphicsRectItem *bar4; // Четвертый столбец
 
+    bool isBarChart; // Переключатель для выбора типа графика (гистограмма или линия)
+    QList<QPointF> lineSeries; // Список точек для линии
 
 };
 #endif // MAINWINDOW_H

@@ -32,7 +32,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QGraphicsView *graphicsView;
-    QPushButton *pushButton;
+    QPushButton *toggleChartButton;
     QLCDNumber *lcdNumber;
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *portNameEdit;
@@ -47,7 +47,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(404, 303);
+        MainWindow->resize(447, 348);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
@@ -56,7 +56,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
         centralwidget->setSizePolicy(sizePolicy);
-        centralwidget->setMaximumSize(QSize(474, 483));
+        centralwidget->setMaximumSize(QSize(1920, 1080));
         verticalLayout_4 = new QVBoxLayout(centralwidget);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_3 = new QVBoxLayout();
@@ -74,18 +74,15 @@ public:
 
         verticalLayout->addWidget(graphicsView);
 
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
+        toggleChartButton = new QPushButton(centralwidget);
+        toggleChartButton->setObjectName("toggleChartButton");
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(toggleChartButton);
 
         lcdNumber = new QLCDNumber(centralwidget);
         lcdNumber->setObjectName("lcdNumber");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(lcdNumber->sizePolicy().hasHeightForWidth());
-        lcdNumber->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(lcdNumber->sizePolicy().hasHeightForWidth());
+        lcdNumber->setSizePolicy(sizePolicy);
         lcdNumber->setMaximumSize(QSize(16777215, 16777215));
         lcdNumber->setDigitCount(16);
 
@@ -101,6 +98,9 @@ public:
 
         connectButton = new QPushButton(centralwidget);
         connectButton->setObjectName("connectButton");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(connectButton->sizePolicy().hasHeightForWidth());
         connectButton->setSizePolicy(sizePolicy1);
 
@@ -148,7 +148,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 404, 21));
+        menubar->setGeometry(QRect(0, 0, 447, 21));
         MainWindow->setMenuBar(menubar);
 
         retranslateUi(MainWindow);
@@ -159,7 +159,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "ChangePlotView", nullptr));
+        toggleChartButton->setText(QCoreApplication::translate("MainWindow", "ChangePlotView", nullptr));
         portNameEdit->setText(QCoreApplication::translate("MainWindow", "COM4", nullptr));
         connectButton->setText(QCoreApplication::translate("MainWindow", "Connect", nullptr));
         koeffEdit->setText(QCoreApplication::translate("MainWindow", "20", nullptr));

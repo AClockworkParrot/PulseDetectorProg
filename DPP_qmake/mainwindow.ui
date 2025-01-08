@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>303</height>
+    <width>447</width>
+    <height>348</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,8 +25,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>474</width>
-     <height>483</height>
+     <width>1920</width>
+     <height>1080</height>
     </size>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -53,7 +53,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="toggleChartButton">
             <property name="text">
              <string>ChangePlotView</string>
             </property>
@@ -62,7 +62,7 @@
           <item>
            <widget class="QLCDNumber" name="lcdNumber">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -158,7 +158,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>404</width>
+     <width>447</width>
      <height>21</height>
     </rect>
    </property>
