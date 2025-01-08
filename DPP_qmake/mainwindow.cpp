@@ -98,3 +98,9 @@ void MainWindow::updateHistogram(int counter1, int counter2, int counter3, int c
     bar3->setRect(120, -counter3, 50, counter3);
     bar4->setRect(180, -counter4, 50, counter4);
 }
+
+void MainWindow::on_centralwidget_customContextMenuRequested(const QPoint &pos)
+{
+
+}
+

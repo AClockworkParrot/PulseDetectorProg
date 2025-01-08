@@ -18,7 +18,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,8 +27,12 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
+    QGraphicsView *graphicsView;
+    QPushButton *pushButton;
     QLCDNumber *lcdNumber;
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *portNameEdit;
@@ -38,30 +41,51 @@ public:
     QLineEdit *koeffEdit;
     QPushButton *setKoeffButton;
     QPushButton *closeButton;
-    QGraphicsView *graphicsView;
     QMenuBar *menubar;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(404, 303);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(130, 300, 331, 191));
-        verticalLayout = new QVBoxLayout(layoutWidget);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        lcdNumber = new QLCDNumber(layoutWidget);
-        lcdNumber->setObjectName("lcdNumber");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        centralwidget->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(lcdNumber->sizePolicy().hasHeightForWidth());
-        lcdNumber->setSizePolicy(sizePolicy);
+        sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
+        centralwidget->setSizePolicy(sizePolicy);
+        centralwidget->setMaximumSize(QSize(474, 483));
+        verticalLayout_4 = new QVBoxLayout(centralwidget);
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setSizeConstraint(QLayout::SizeConstraint::SetMaximumSize);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setSizeConstraint(QLayout::SizeConstraint::SetMaximumSize);
+        graphicsView = new QGraphicsView(centralwidget);
+        graphicsView->setObjectName("graphicsView");
+        sizePolicy.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
+        graphicsView->setSizePolicy(sizePolicy);
+
+        verticalLayout->addWidget(graphicsView);
+
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName("pushButton");
+
+        verticalLayout->addWidget(pushButton);
+
+        lcdNumber = new QLCDNumber(centralwidget);
+        lcdNumber->setObjectName("lcdNumber");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lcdNumber->sizePolicy().hasHeightForWidth());
+        lcdNumber->setSizePolicy(sizePolicy1);
         lcdNumber->setMaximumSize(QSize(16777215, 16777215));
         lcdNumber->setDigitCount(16);
 
@@ -69,16 +93,16 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        portNameEdit = new QLineEdit(layoutWidget);
+        portNameEdit = new QLineEdit(centralwidget);
         portNameEdit->setObjectName("portNameEdit");
         portNameEdit->setMaximumSize(QSize(133, 22));
 
         horizontalLayout_2->addWidget(portNameEdit);
 
-        connectButton = new QPushButton(layoutWidget);
+        connectButton = new QPushButton(centralwidget);
         connectButton->setObjectName("connectButton");
-        sizePolicy.setHeightForWidth(connectButton->sizePolicy().hasHeightForWidth());
-        connectButton->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(connectButton->sizePolicy().hasHeightForWidth());
+        connectButton->setSizePolicy(sizePolicy1);
 
         horizontalLayout_2->addWidget(connectButton);
 
@@ -87,36 +111,45 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        koeffEdit = new QLineEdit(layoutWidget);
+        koeffEdit = new QLineEdit(centralwidget);
         koeffEdit->setObjectName("koeffEdit");
         koeffEdit->setMaximumSize(QSize(133, 22));
 
         horizontalLayout->addWidget(koeffEdit);
 
-        setKoeffButton = new QPushButton(layoutWidget);
+        setKoeffButton = new QPushButton(centralwidget);
         setKoeffButton->setObjectName("setKoeffButton");
-        sizePolicy.setHeightForWidth(setKoeffButton->sizePolicy().hasHeightForWidth());
-        setKoeffButton->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(setKoeffButton->sizePolicy().hasHeightForWidth());
+        setKoeffButton->setSizePolicy(sizePolicy1);
 
         horizontalLayout->addWidget(setKoeffButton);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
+        verticalLayout->setStretch(0, 5);
+        verticalLayout->setStretch(2, 1);
+        verticalLayout->setStretch(3, 1);
+        verticalLayout->setStretch(4, 1);
+
+        verticalLayout_2->addLayout(verticalLayout);
+
+
+        verticalLayout_3->addLayout(verticalLayout_2);
+
         closeButton = new QPushButton(centralwidget);
         closeButton->setObjectName("closeButton");
-        closeButton->setGeometry(QRect(380, 490, 80, 24));
-        graphicsView = new QGraphicsView(centralwidget);
-        graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(130, 90, 256, 192));
+
+        verticalLayout_3->addWidget(closeButton);
+
+
+        verticalLayout_4->addLayout(verticalLayout_3);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 404, 21));
         MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -126,6 +159,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "ChangePlotView", nullptr));
         portNameEdit->setText(QCoreApplication::translate("MainWindow", "COM4", nullptr));
         connectButton->setText(QCoreApplication::translate("MainWindow", "Connect", nullptr));
         koeffEdit->setText(QCoreApplication::translate("MainWindow", "20", nullptr));

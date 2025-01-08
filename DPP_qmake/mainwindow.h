@@ -38,6 +38,9 @@ public slots:
     // Обновление гистограммы
     void updateHistogram(int counter1, int counter2, int counter3, int counter4);
 
+private slots:
+    void on_centralwidget_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::MainWindow *ui;
     //Экземпляр класса ArduinoClock, отвечающий за связь с Arduino.
